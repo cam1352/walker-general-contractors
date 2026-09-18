@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import TrustBadges from './components/TrustBadges';
 import CostEstimator from './components/CostEstimator';
 import BeforeAfterSlider from './components/BeforeAfterSlider';
 import Services from './components/Services';
@@ -44,6 +45,8 @@ export default function App() {
           onOpenContact={handleOpenContactNormal}
         />
 
+        <TrustBadges />
+
         <CostEstimator
           onOpenContactWithEstimate={handleOpenContactWithEstimate}
         />
@@ -81,3 +84,4 @@ export default function App() {
     </div>
   );
 }
+

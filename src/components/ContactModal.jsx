@@ -30,7 +30,16 @@ export default function ContactModal({ isOpen, onClose, initialEstimateData }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    const formData = new FormData(e.target);
+    formData.append("form-name", "contact");
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString()
+    })
+    .then(() => setSubmitted(true))
+    .catch((error) => console.error(error));
   };
 
   const handleReset = () => {
@@ -97,6 +106,7 @@ export default function ContactModal({ isOpen, onClose, initialEstimateData }) {
                 <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Your Full Name *</label>
                 <input
                   type="text"
+                  name="name"
                   required
                   placeholder="e.g. Sarah Jenkins"
                   value={formData.name}
@@ -109,6 +119,7 @@ export default function ContactModal({ isOpen, onClose, initialEstimateData }) {
                 <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Phone Number *</label>
                 <input
                   type="tel"
+                  name="phone"
                   required
                   placeholder="(604) 555-0199"
                   value={formData.phone}
@@ -123,6 +134,7 @@ export default function ContactModal({ isOpen, onClose, initialEstimateData }) {
                 <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Email Address *</label>
                 <input
                   type="email"
+                  name="email"
                   required
                   placeholder="sarah@example.com"
                   value={formData.email}
@@ -134,6 +146,7 @@ export default function ContactModal({ isOpen, onClose, initialEstimateData }) {
               <div className="space-y-1.5">
                 <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Service Scope</label>
                 <select
+                  name="service"
                   value={formData.service}
                   onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                   className="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-[#8CC63F]"
@@ -152,6 +165,7 @@ export default function ContactModal({ isOpen, onClose, initialEstimateData }) {
             <div className="space-y-1.5">
               <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Project Details & Ideas</label>
               <textarea
+                name="message"
                 rows="3"
                 placeholder="Describe your vision, architectural preferences, or budget parameters..."
                 value={formData.message}
@@ -165,6 +179,7 @@ export default function ContactModal({ isOpen, onClose, initialEstimateData }) {
               <span className="text-xs text-slate-400 font-mono">Quick Verification: 5 + 3 = ?</span>
               <input
                 type="text"
+                name="securityAnswer"
                 required
                 placeholder="Answer"
                 value={formData.securityAnswer}
