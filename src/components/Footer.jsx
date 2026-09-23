@@ -1,8 +1,8 @@
-import React from 'react';
+﻿import React from 'react';
 import { Phone, Mail, MapPin, ChevronRight, ShieldCheck } from 'lucide-react';
 import { companyDetails } from '../data/walkerData';
 
-export default function Footer({ onOpenContact }) {
+export default function Footer({ onOpenContact, onOpenSubcontractor }) {
   return (
     <footer className="bg-slate-950 text-slate-400 border-t border-slate-900 pt-16 pb-12 text-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
@@ -42,6 +42,7 @@ export default function Footer({ onOpenContact }) {
               <li><a href="#portfolio" className="hover:text-[#8CC63F] transition-colors">Project Gallery</a></li>
               <li><a href="#process" className="hover:text-[#8CC63F] transition-colors">5-Stage Process</a></li>
               <li><a href="#about" className="hover:text-[#8CC63F] transition-colors">About Kyle Walker</a></li>
+              <li><button onClick={onOpenSubcontractor} className="hover:text-[#8CC63F] transition-colors text-left">Trade & Subcontractor Portal</button></li>
             </ul>
           </div>
 
@@ -98,13 +99,13 @@ export default function Footer({ onOpenContact }) {
 
         <div className="border-t border-slate-900 pt-8 flex flex-col sm:flex-row justify-between items-center text-[11px] text-slate-500 gap-4">
           <div>
-            © {new Date().getFullYear()} {companyDetails.name}. All rights reserved. North Vancouver, BC.
+            Â© {new Date().getFullYear()} {companyDetails.name}. All rights reserved. North Vancouver, BC.
           </div>
           <div className="flex space-x-4">
             <span className="hover:text-slate-400 cursor-pointer">Privacy Policy</span>
-            <span>•</span>
+            <span>â€¢</span>
             <span className="hover:text-slate-400 cursor-pointer">Terms of Service</span>
-            <span>•</span>
+            <span>â€¢</span>
             <span className="hover:text-slate-400 cursor-pointer">BC Housing License</span>
           </div>
         </div>

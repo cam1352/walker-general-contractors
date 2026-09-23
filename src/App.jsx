@@ -11,10 +11,12 @@ import AboutOwner from './components/AboutOwner';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import ContactModal from './components/ContactModal';
+import SubcontractorPortal from './components/SubcontractorPortal';
 import Footer from './components/Footer';
 
 export default function App() {
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [isSubcontractorOpen, setIsSubcontractorOpen] = useState(false);
   const [estimateData, setEstimateData] = useState(null);
 
   const handleOpenContactWithEstimate = (data) => {
@@ -35,6 +37,7 @@ export default function App() {
           if (el) el.scrollIntoView({ behavior: 'smooth' });
         }}
         onOpenContact={handleOpenContactNormal}
+        onOpenSubcontractor={() => setIsSubcontractorOpen(true)}
       />
       
       <main>
@@ -76,8 +79,11 @@ export default function App() {
         <FAQ />
       </main>
 
+      <SubcontractorPortal isOpen={isSubcontractorOpen} onClose={() => setIsSubcontractorOpen(false)} />
+
       <Footer
         onOpenContact={handleOpenContactNormal}
+        onOpenSubcontractor={() => setIsSubcontractorOpen(true)}
       />
 
       <ContactModal
