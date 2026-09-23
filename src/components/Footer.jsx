@@ -1,8 +1,9 @@
 ﻿import React from 'react';
 import { Phone, Mail, MapPin, ChevronRight, ShieldCheck } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { companyDetails } from '../data/walkerData';
 
-export default function Footer({ onOpenContact, onOpenSubcontractor }) {
+export default function Footer({ onOpenContact }) {
   return (
     <footer className="bg-slate-950 text-slate-400 border-t border-slate-900 pt-16 pb-12 text-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
@@ -50,7 +51,7 @@ export default function Footer({ onOpenContact, onOpenSubcontractor }) {
               <li><a href="#portfolio" className="hover:text-[#8CC63F] transition-colors">Project Gallery</a></li>
               <li><a href="#process" className="hover:text-[#8CC63F] transition-colors">5-Stage Process</a></li>
               <li><a href="#about" className="hover:text-[#8CC63F] transition-colors">About Kyle Walker</a></li>
-              <li><button onClick={onOpenSubcontractor} className="hover:text-[#8CC63F] transition-colors text-left">Trade & Subcontractor Portal</button></li>
+              <li><Link to="/subcontractors" className="hover:text-[#8CC63F] transition-colors text-left">Trade & Subcontractor Portal</Link></li>
             </ul>
           </div>
 

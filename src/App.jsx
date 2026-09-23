@@ -12,7 +12,7 @@ import AboutOwner from './components/AboutOwner';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import ContactModal from './components/ContactModal';
-import SubcontractorPortal from './components/SubcontractorPortal';
+import SubcontractorPage from './pages/SubcontractorPage';
 import Footer from './components/Footer';
 import GoogleTranslate from './components/GoogleTranslate';
 import LocationPage from './pages/LocationPage';
@@ -22,7 +22,7 @@ import BrochurePage from './pages/BrochurePage';
 function HomePage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [estimateData, setEstimateData] = useState(null);
-  const [isSubcontractorOpen, setIsSubcontractorOpen] = useState(false);
+  
 
   const handleOpenContactWithEstimate = (data) => {
     setEstimateData(data);
@@ -42,8 +42,7 @@ function HomePage() {
           if (el) el.scrollIntoView({ behavior: 'smooth' });
         }}
         onOpenContact={handleOpenContactNormal}
-        onOpenSubcontractor={() => setIsSubcontractorOpen(true)}
-      />
+        />
       
       <main>
         <Hero
@@ -81,8 +80,7 @@ function HomePage() {
 
       <Footer 
         onOpenContact={handleOpenContactNormal}
-        onOpenSubcontractor={() => setIsSubcontractorOpen(true)}
-      />
+        />
 
       <ContactModal
         isOpen={isContactOpen}
@@ -92,7 +90,7 @@ function HomePage() {
       
       
       
-        <SubcontractorPortal isOpen={isSubcontractorOpen} onClose={() => setIsSubcontractorOpen(false)} />
+        
     </div>
   );
 }
@@ -103,6 +101,7 @@ export default function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/locations" element={<LocationsList />} />
           <Route path="/overview" element={<BrochurePage />} />
+      <Route path="/subcontractors" element={<SubcontractorPage />} />
       <Route path="/locations/:main/:sub" element={<LocationPage />} />
     </Routes>
   );
