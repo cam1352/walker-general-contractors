@@ -51,7 +51,28 @@ export default function SubcontractorPortal({ isOpen, onClose }) {
               </button>
             </div>
           ) : (
-            <form action="https://formsubmit.co/info@walkergeneralcontractors.ca" method="POST" enctype="multipart/form-data" className="space-y-6">
+            <form 
+  onSubmit={(e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    fetch("https://formsubmit.co/ajax/info@walkergeneralcontractors.ca", {
+        method: "POST",
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        setSubmitted(true);
+    })
+    .catch(error => {
+        console.error(error);
+        setSubmitted(true);
+    });
+  }}
+  className="space-y-6"
+>
             <input type="hidden" name="_subject" value="New Subcontractor Application - Walker General Contractors" />
             <input type="hidden" name="_next" value="https://walkergeneralcontractors.ca/" />
             <input type="hidden" name="_captcha" value="false" />
