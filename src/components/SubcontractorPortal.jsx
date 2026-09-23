@@ -28,7 +28,7 @@ export default function SubcontractorPortal({ isOpen, onClose }) {
         <div className="p-6 overflow-y-auto">
           <form action="https://formsubmit.co/info@walkergeneralcontractors.ca" method="POST" encType="multipart/form-data" className="space-y-6">
             <input type="hidden" name="_subject" value="New Subcontractor Application - Walker General Contractors" />
-            <input type="hidden" name="_next" value="https://walkergeneralcontractors.ca/" />
+            
             <input type="hidden" name="_captcha" value="false" />
 
             {/* Company Details */}

@@ -77,7 +77,6 @@ export default function Navbar({ onOpenEstimate, onOpenContact, onOpenSubcontrac
 
           {/* Action CTAs */}
           <div className="hidden md:flex items-center space-x-3">
-            <GoogleTranslate id="google_desktop" className="mr-2" />
             <button
               onClick={onOpenContact}
               className="px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-wider bg-[#8CC63F] text-white hover:bg-[#7CB334] shadow-md shadow-[#8CC63F]/20 transition-all transform hover:-translate-y-0.5 flex items-center space-x-1"
@@ -111,7 +110,7 @@ export default function Navbar({ onOpenEstimate, onOpenContact, onOpenSubcontrac
             {/* Language Toggle - directly under subcontractor login */}
             <div className="py-2 border-b border-slate-100">
               <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider mb-2">Language</p>
-              <GoogleTranslate id="google_mobile" className="" />
+              <GoogleTranslate />
             </div>
 
             <div className="pt-2 space-y-2">

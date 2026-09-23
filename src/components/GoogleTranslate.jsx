@@ -1,30 +1,40 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
-export default function GoogleTranslate({ id = "google_translate_element", className = "" }) {
+let isScriptInjected = false;
+
+export default function GoogleTranslate({ className = "" }) {
+  const containerRef = useRef(null);
+
   useEffect(() => {
-    // Define a unique callback for this specific instance
-    const initFuncName = `googleTranslateElementInit_${id}`;
-    
-    window[initFuncName] = () => {
-      new window.google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'en,fr,es,pa,zh-CN,zh-TW,ru,uk,iw,he',
-        layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
-      }, id);
-    };
+    // We only want ONE google translate instance on the entire page.
+    if (document.getElementById('google_translate_element')) {
+       return; 
+    }
 
-    // Load the script uniquely for this instance if it hasn't been loaded
-    if (!document.getElementById(`google-translate-script-${id}`)) {
+    const translateDiv = document.createElement('div');
+    translateDiv.id = 'google_translate_element';
+    if (containerRef.current) {
+        containerRef.current.appendChild(translateDiv);
+    }
+
+    if (!isScriptInjected) {
+      isScriptInjected = true;
+      window.googleTranslateElementInit = () => {
+        new window.google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'en,fr,es,pa,zh-CN,zh-TW,ru,uk,iw,he',
+          layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+      };
+
       const addScript = document.createElement('script');
-      addScript.id = `google-translate-script-${id}`;
-      addScript.setAttribute('src', `//translate.google.com/translate_a/element.js?cb=${initFuncName}`);
+      addScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
       document.body.appendChild(addScript);
     }
-  }, [id]);
+  }, []);
 
   return (
-    <div className={className}>
-      <div id={id}></div>
+    <div className={className} ref={containerRef}>
     </div>
   );
 }
