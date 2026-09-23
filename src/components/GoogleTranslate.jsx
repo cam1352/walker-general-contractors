@@ -22,7 +22,7 @@ export default function GoogleTranslate({ className = "" }) {
       window.googleTranslateElementInit = () => {
         new window.google.translate.TranslateElement({
           pageLanguage: 'en',
-          includedLanguages: 'en,fr,es,pa,zh-CN,zh-TW,ru,uk,iw,he',
+          
           layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
         }, 'google_translate_element');
       };

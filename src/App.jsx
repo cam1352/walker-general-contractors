@@ -42,7 +42,7 @@ function HomePage() {
           if (el) el.scrollIntoView({ behavior: 'smooth' });
         }}
         onOpenContact={handleOpenContactNormal}
-        
+        onOpenSubcontractor={() => setIsSubcontractorOpen(true)}
       />
       
       <main>
