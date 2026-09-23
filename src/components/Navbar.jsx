@@ -1,4 +1,5 @@
 ﻿import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Menu, X, ChevronRight, Calculator } from 'lucide-react';
 import { companyDetails } from '../data/walkerData';
 
@@ -44,14 +45,14 @@ export default function Navbar({ onOpenEstimate, onOpenContact }) {
       <nav className={`transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md py-3 shadow-md border-b border-slate-200' : 'bg-white py-5 border-b border-slate-100'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           
-          <a href="#" className="flex items-center space-x-3 group">
+          <Link to="/" className="flex items-center space-x-3 group">
             <img 
               src="https://walkergeneralcontractors.ca/wp-content/uploads/2026/03/Walker-logo.png" 
               alt="Walker General Contractors Logo" 
               className="h-12 w-auto object-contain group-hover:opacity-90 transition-opacity"
             />
-            <div className="flex flex-col hidden sm:flex">
-              <span className="font-heading font-extrabold text-lg sm:text-xl tracking-wider text-slate-900 uppercase group-hover:text-[#8CC63F] transition-colors leading-tight">
+            <div className="flex flex-col">
+              <span className="font-heading font-extrabold text-sm sm:text-lg tracking-wider text-slate-900 uppercase group-hover:text-[#8CC63F] transition-colors leading-tight">
                 GENERAL CONTRACTORS
               </span>
               <span className="text-[11px] tracking-[0.2em] text-[#808285] uppercase font-bold">
