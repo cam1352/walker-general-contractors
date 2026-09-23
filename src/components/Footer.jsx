@@ -17,6 +17,14 @@ export default function Footer({ onOpenContact, onOpenSubcontractor }) {
                 alt="Walker General Contractors Logo" 
                 className="h-12 w-auto object-contain bg-white/10 rounded-lg p-1"
               />
+              <div className="flex flex-col">
+                <span className="font-heading font-extrabold text-lg tracking-wider text-white uppercase leading-tight">
+                  GENERAL CONTRACTORS
+                </span>
+                <span className="text-[11px] tracking-[0.2em] text-[#808285] uppercase font-bold">
+                  Vancouver
+                </span>
+              </div>
             </div>
 
             <p className="text-slate-400 leading-relaxed text-xs">

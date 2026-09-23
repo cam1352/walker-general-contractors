@@ -50,6 +50,14 @@ export default function Navbar({ onOpenEstimate, onOpenContact }) {
               alt="Walker General Contractors Logo" 
               className="h-12 w-auto object-contain group-hover:opacity-90 transition-opacity"
             />
+            <div className="flex flex-col hidden sm:flex">
+              <span className="font-heading font-extrabold text-lg sm:text-xl tracking-wider text-slate-900 uppercase group-hover:text-[#8CC63F] transition-colors leading-tight">
+                GENERAL CONTRACTORS
+              </span>
+              <span className="text-[11px] tracking-[0.2em] text-[#808285] uppercase font-bold">
+                Vancouver
+              </span>
+            </div>
           </a>
 
           {/* Desktop Navigation */}
