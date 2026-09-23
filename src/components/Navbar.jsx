@@ -32,11 +32,11 @@ export default function Navbar({ onOpenEstimate, onOpenContact }) {
             <a href={`tel:${companyDetails.phone}`} className="flex items-center space-x-1.5 hover:text-[#8CC63F] transition-colors">
               <Phone className="w-3.5 h-3.5 text-[#8CC63F]" />
               <span className="font-bold text-slate-800">{companyDetails.phoneFormatted}</span>
-            </a>
+            </Link>
             <a href={`mailto:${companyDetails.email}`} className="flex items-center space-x-1.5 hover:text-[#8CC63F] transition-colors">
               <Mail className="w-3.5 h-3.5 text-[#8CC63F]" />
               <span className="font-medium text-slate-600">{companyDetails.email}</span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -106,7 +106,7 @@ export default function Navbar({ onOpenEstimate, onOpenContact }) {
               <a href={`tel:${companyDetails.phone}`} className="w-full py-3 rounded-lg bg-slate-100 border border-slate-200 text-[#8CC63F] font-bold flex items-center justify-center space-x-2 text-sm">
                 <Phone className="w-4 h-4" />
                 <span>Call {companyDetails.phoneFormatted}</span>
-              </a>
+              </Link>
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
