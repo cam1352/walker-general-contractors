@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Menu, X, ChevronRight, Calculator } from 'lucide-react';
 import { companyDetails } from '../data/walkerData';
 
-export default function Navbar({ onOpenEstimate, onOpenContact }) {
+export default function Navbar({ onOpenEstimate, onOpenContact, onOpenSubcontractor }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -26,7 +26,12 @@ export default function Navbar({ onOpenEstimate, onOpenContact }) {
               <span>{companyDetails.address}, {companyDetails.city}, BC</span>
             </span>
             <span className="text-slate-300">|</span>
-            <span className="text-slate-600 font-medium">Licensed BC Builder & General Contractor</span>
+            <span className="text-slate-600 font-medium">Licensed BC Builder</span>
+            <span className="text-slate-300">|</span>
+            <button onClick={onOpenSubcontractor} className="flex items-center space-x-1 hover:text-[#8CC63F] text-slate-500 transition-colors font-bold uppercase tracking-wider text-[10px]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-shield-check"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+              <span>Subcontractor Login</span>
+            </button>
           </div>
           <div className="flex items-center space-x-5">
             <a href={`tel:${companyDetails.phone}`} className="flex items-center space-x-1.5 hover:text-[#8CC63F] transition-colors">
@@ -94,6 +99,10 @@ export default function Navbar({ onOpenEstimate, onOpenContact }) {
             <a href="#services" onClick={() => setMobileMenuOpen(false)} className="block text-slate-700 hover:text-[#8CC63F] font-bold py-2 border-b border-slate-100">Services</a>
             <a href="#portfolio" onClick={() => setMobileMenuOpen(false)} className="block text-slate-700 hover:text-[#8CC63F] font-bold py-2 border-b border-slate-100">Project Portfolio</a>
             <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="block text-slate-700 hover:text-[#8CC63F] font-bold py-2 border-b border-slate-100">Frequently Asked Questions</a>
+            <button onClick={() => { setMobileMenuOpen(false); onOpenSubcontractor(); }} className="block w-full text-left text-slate-700 hover:text-[#8CC63F] font-bold py-2 border-b border-slate-100 flex items-center space-x-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#8CC63F]"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+              <span>Subcontractor Compliance Login</span>
+            </button>
             
             <div className="pt-2 space-y-2">
               <a href={`tel:${companyDetails.phone}`} className="w-full py-3 rounded-lg bg-slate-100 border border-slate-200 text-[#8CC63F] font-bold flex items-center justify-center space-x-2 text-sm">
