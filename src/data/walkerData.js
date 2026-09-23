@@ -38,49 +38,49 @@ export const services = [
     title: "Custom Home Building",
     category: "Build",
     icon: "Home",
-    summary: "Ground-up architectural homes custom designed for North Shore mountain slopes, coastal moisture, and modern living.",
+    summary: "High-performance, architecturally stunning custom homes tailored to your lifestyle, lot topography, and built to exceed BC Energy Step Code standards.",
     features: [
-      "BC Energy Step Code 4 & 5 Compliance",
-      "Mass timber & steel beam integration",
-      "Steep-slope engineered foundation systems",
-      "Smart home & geothermal heat pump integration"
+      "Fixed-price transparent budgeting",
+      "End-to-end municipal permit management",
+      "BC 2-5-10 Residential Home Warranty",
+      "Dedicated senior site superintendent"
     ],
-    bgImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
+    bgImage: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: "full-renovations",
     title: "Full Home Renovations",
     category: "Renovation",
-    icon: "Hammer",
-    summary: "Complete interior and exterior house modernization, structural open-concept transformations, and seismic updates.",
-    features: [
-      "Structural load-bearing wall removal",
-      "Floorplan flow optimization",
-      "High-efficiency envelope & insulation upgrades",
-      "Custom millwork & luxury flooring throughout"
-    ],
-    bgImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80"
-  },
-  {
-    id: "laneway-houses",
-    title: "Laneway Houses & ADUs",
-    category: "Infill",
     icon: "Building2",
-    summary: "Turn key secondary infill housing and accessory dwelling units (ADUs) designed to maximize property value and rental yield.",
+    summary: "Complete gut-renovations, structural wall removals, and floorplan reconfigurations that breathe modern luxury into aging properties.",
     features: [
-      "District & City of North Van zoning compliance",
-      "Compact multi-level architectural designs",
-      "Independent utility hookups & solar readiness",
-      "High rental income ROI strategy"
+      "Structural steel beam installation",
+      "Asbestos testing & safe remediation",
+      "Complete electrical & plumbing repipes",
+      "Open-concept layout transformations"
     ],
-    bgImage: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80"
+    bgImage: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80"
   },
   {
-    id: "kitchen-remodels",
+    id: "basement-suites",
+    title: "Basement Suites & ADUs",
+    category: "Renovation",
+    icon: "Layers",
+    summary: "Convert dark underutilized basements into bright, legal secondary suites, premium home theatres, or high-yield rental properties.",
+    features: [
+      "Soundproofing & resilient channel insulation",
+      "Separate entrance excavation & drainage",
+      "City permit management & occupancy sign-off",
+      "High-ceiling underpinning & daylight windows"
+    ],
+    bgImage: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    id: "luxury-kitchens",
     title: "Luxury Kitchen Renovations",
     category: "Renovation",
     icon: "ChefHat",
-    summary: "Chef-grade custom kitchens with quartz waterfall islands, custom cabinetry, pantry extensions, and ambient lighting.",
+    summary: "Chef-grade custom kitchens with quartz waterfall islands, custom cabinetry, pantry extensions, and intelligent ambient lighting.",
     features: [
       "Custom solid wood & lacquer cabinetry",
       "Quartzite & marble waterfall counters",
@@ -104,18 +104,74 @@ export const services = [
     bgImage: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80"
   },
   {
-    id: "basement-suites",
-    title: "Basement Suites & Legal ADUs",
+    id: "exterior-renovations",
+    title: "Exterior Renovations",
     category: "Renovation",
-    icon: "Layers",
-    summary: "Convert dark underutilized basements into bright, legal secondary suites or premium home theatres and wellness gyms.",
+    icon: "Building2",
+    summary: "Total facade transformations, high-efficiency window upgrades, and premium weather-resistant siding installations for BC's climate.",
     features: [
-      "Soundproofing & resilient channel insulation",
-      "Separate entrance excavation & drainage",
-      "City permit management & occupancy sign-off",
-      "High-ceiling underpinning & daylight windows"
+      "James Hardie & natural cedar siding",
+      "Triple-pane high efficiency windows",
+      "Rain-screen system engineering",
+      "Custom timber-frame entryways"
     ],
-    bgImage: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80"
+    bgImage: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    id: "painting",
+    title: "Interior & Exterior Painting",
+    category: "Specialty",
+    icon: "Layers",
+    summary: "Flawless, ultra-durable paint applications using premium commercial-grade coatings for both interior walls and exterior facades.",
+    features: [
+      "Level 5 drywall finishing & prep",
+      "Benjamin Moore & Sherwin Williams",
+      "Dustless sanding technology",
+      "Weather-resistant exterior sealing"
+    ],
+    bgImage: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    id: "flooring",
+    title: "Premium Flooring",
+    category: "Specialty",
+    icon: "Layers",
+    summary: "High-end flooring installations including wide-plank European white oak, heated large-format tile, and polished concrete.",
+    features: [
+      "Engineered & solid hardwood install",
+      "Self-leveling & acoustic underlays",
+      "Seamless flush floor transitions",
+      "Custom stair tread manufacturing"
+    ],
+    bgImage: "https://images.unsplash.com/photo-1581858326456-7871b6d194c5?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    id: "framing-foundations",
+    title: "Framing & Foundations",
+    category: "Build",
+    icon: "Hammer",
+    summary: "Heavy structural timber framing, custom engineered roof trusses, and seismically reinforced concrete foundations.",
+    features: [
+      "Structural steel & heavy timber",
+      "Seismic anchoring & retrofitting",
+      "Custom forming & concrete pours",
+      "Complex architectural roof framing"
+    ],
+    bgImage: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    id: "landscaping",
+    title: "Landscaping & Hardscaping",
+    category: "Specialty",
+    icon: "Home",
+    summary: "Complete outdoor living transformations featuring architectural retaining walls, outdoor kitchens, and ambient landscape lighting.",
+    features: [
+      "Architectural concrete retaining walls",
+      "Interlocking pavers & stone patios",
+      "Custom built outdoor kitchens & firepits",
+      "Low-voltage landscape lighting"
+    ],
+    bgImage: "https://images.unsplash.com/photo-1558904541-efa843a96f09?auto=format&fit=crop&w=1200&q=80"
   }
 ];
 
