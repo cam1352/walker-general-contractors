@@ -3,6 +3,7 @@ import { X, ShieldCheck, FileText, CheckCircle2 } from 'lucide-react';
 
 export default function SubcontractorPortal({ isOpen, onClose }) {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   if (!isOpen) return null;
 
@@ -86,7 +87,7 @@ export default function SubcontractorPortal({ isOpen, onClose }) {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-semibold text-slate-700 mb-1">Legal Company Name</label>
-                    <input type="text" required className="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-[#8CC63F] focus:border-[#8CC63F] outline-none" name="Company Name" placeholder="e.g. Apex Plumbing Ltd." />
+                    <input type="text" className="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-[#8CC63F] focus:border-[#8CC63F] outline-none" name="Company Name" placeholder="e.g. Apex Plumbing Ltd." />
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-slate-700 mb-1">Trade Classification</label>
@@ -113,15 +114,15 @@ export default function SubcontractorPortal({ isOpen, onClose }) {
                 <div className="bg-red-50/50 p-4 rounded-xl border border-red-100 space-y-4">
                   <div>
                     <label className="block text-sm font-semibold text-slate-700 mb-1">WorkSafeBC (WCB) Account Number</label>
-                    <input type="text" required className="w-full px-4 py-2 bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-red-400 outline-none" name="WCB Account Number" placeholder="Required for all site access" />
+                    <input type="text" className="w-full px-4 py-2 bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-red-400 outline-none" name="WCB Account Number" placeholder="Required for all site access" />
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-slate-700 mb-1">Commercial General Liability ($2M Minimum)</label>
-                    <input type="text" required className="w-full px-4 py-2 bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-red-400 outline-none" name="Liability Policy Number" placeholder="Policy Number" />
+                    <input type="text" className="w-full px-4 py-2 bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-red-400 outline-none" name="Liability Policy Number" placeholder="Policy Number" />
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-slate-700 mb-1">Upload Clearance Letter & Insurance Docs (PDF)</label>
-                    <input type="file" name="Clearance Documents" required accept=".pdf,.doc,.docx,.jpg,.png" className="w-full border-2 border-dashed border-slate-300 rounded-xl p-6 flex flex-col items-center justify-center bg-white cursor-pointer hover:bg-slate-50 transition-colors file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#8CC63F] file:text-white hover:file:bg-[#7CB334]" />
+                    <input type="file" name="Clearance Documents" accept=".pdf,.doc,.docx,.jpg,.png" className="w-full border-2 border-dashed border-slate-300 rounded-xl p-6 flex flex-col items-center justify-center bg-white cursor-pointer hover:bg-slate-50 transition-colors file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#8CC63F] file:text-white hover:file:bg-[#7CB334]" />
                   </div>
                 </div>
               </div>

@@ -1,4 +1,10 @@
-import React from 'react';
+﻿import re
+
+with open('src/pages/BrochurePage.jsx', 'r', encoding='utf-8') as f:
+    content = f.read()
+
+# Replace the Canva iframe with a text block
+new_content = """import React from 'react';
 
 export default function BrochurePage() {
   return (
@@ -9,4 +15,9 @@ export default function BrochurePage() {
       </div>
     </div>
   );
-}
+}"""
+
+with open('src/pages/BrochurePage.jsx', 'w', encoding='utf-8') as f:
+    f.write(new_content)
+
+print("Brochure page updated!")

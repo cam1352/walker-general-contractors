@@ -123,7 +123,7 @@ export default function Navbar({ onOpenEstimate, onOpenContact, onOpenSubcontrac
                 Request Free Consultation
               </button>
             </div>
-            <GoogleTranslate id="google_mobile" className="w-full flex justify-center py-4 border-t border-slate-100" />
+            
           </div>
       </nav>
     </header>

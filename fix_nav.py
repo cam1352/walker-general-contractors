@@ -1,36 +1,22 @@
 ﻿import re
 
 with open('src/components/Navbar.jsx', 'r', encoding='utf-8') as f:
-    content = f.read()
+    nav = f.read()
 
-# 1. Add GoogleTranslate import
-content = content.replace("import { companyDetails } from '../data/walkerData';", "import { companyDetails } from '../data/walkerData';\nimport GoogleTranslate from './GoogleTranslate';")
+# Remove the old GoogleTranslate from the bottom
+nav = re.sub(r'<GoogleTranslate id="google_mobile" className="w-full flex justify-center py-4 border-t border-slate-100" />', '', nav)
 
-# 2. Add Overview Link
-content = content.replace('<a href="#faq" className="hover:text-[#8CC63F] transition-colors">FAQ</a>', '<a href="#faq" className="hover:text-[#8CC63F] transition-colors">FAQ</a>\n              <Link to="/overview" className="hover:text-[#8CC63F] transition-colors">Company Overview</Link>')
-content = content.replace('<a href="#faq" onClick={() => setMobileMenuOpen(false)} className="block text-slate-700 hover:text-[#8CC63F] font-bold py-2 border-b border-slate-100">Frequently Asked Questions</a>', '<a href="#faq" onClick={() => setMobileMenuOpen(false)} className="block text-slate-700 hover:text-[#8CC63F] font-bold py-2 border-b border-slate-100">Frequently Asked Questions</a>\n              <Link to="/overview" onClick={() => setMobileMenuOpen(false)} className="block text-slate-700 hover:text-[#8CC63F] font-bold py-2 border-b border-slate-100">Company Overview</Link>')
+# Add it below Subcontractor Login
+old_button = '''              <button onClick={() => { setMobileMenuOpen(false); onOpenSubcontractor(); }} className="block w-full text-left text-slate-700 hover:text-[#8CC63F] font-bold py-2 border-b border-slate-100 flex items-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#8CC63F]"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+                <span>Subcontractor Compliance Login</span>
+              </button>'''
 
-# 3. Change mobile menu to use CSS visibility
-content = content.replace('{mobileMenuOpen && (', '')
+new_button = old_button + '''\n              <div className="py-2 border-b border-slate-100 flex items-center justify-start"><GoogleTranslate id="google_mobile" className="" /></div>'''
 
-# Replace the specific closing )} that corresponds to the mobileMenuOpen block.
-# We know it's right before </nav>
-content = content.replace('        )}\n      </nav>', '      </nav>')
-
-# And we need to change the class name of the mobile menu
-old_mobile_class = '<div className="lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-4 shadow-xl">'
-new_mobile_class = '<div className={lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-4 shadow-xl transition-all duration-300 overflow-hidden }>'
-content = content.replace(old_mobile_class, new_mobile_class)
-
-# 4. Inject Google Translate into the bottom of the mobile menu
-old_bottom = '''                </button>
-              </div>
-            </div>'''
-new_bottom = '''                </button>
-              </div>
-              <GoogleTranslate id="google_mobile" className="w-full flex justify-center py-4 border-t border-slate-100" />
-            </div>'''
-content = content.replace(old_bottom, new_bottom)
+nav = nav.replace(old_button, new_button)
 
 with open('src/components/Navbar.jsx', 'w', encoding='utf-8') as f:
-    f.write(content)
+    f.write(nav)
+
+print("Navbar updated!")
