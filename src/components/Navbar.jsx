@@ -77,6 +77,7 @@ export default function Navbar({ onOpenEstimate, onOpenContact, onOpenSubcontrac
 
           {/* Action CTAs */}
           <div className="hidden md:flex items-center space-x-3">
+            <GoogleTranslate id="google_desktop" className="mr-2" />
             <button
               onClick={onOpenContact}
               className="px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-wider bg-[#8CC63F] text-white hover:bg-[#7CB334] shadow-md shadow-[#8CC63F]/20 transition-all transform hover:-translate-y-0.5 flex items-center space-x-1"
@@ -122,6 +123,7 @@ export default function Navbar({ onOpenEstimate, onOpenContact, onOpenSubcontrac
                 Request Free Consultation
               </button>
             </div>
+            <GoogleTranslate id="google_mobile" className="w-full flex justify-center py-4 border-t border-slate-100" />
           </div>
       </nav>
     </header>

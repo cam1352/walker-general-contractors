@@ -91,7 +91,7 @@ function HomePage() {
       />
       
       
-      <GoogleTranslate id="google_desktop" className="hidden lg:flex fixed bottom-6 left-6 z-[100] bg-white p-2 rounded-xl shadow-2xl border border-slate-200" />
+      
         <SubcontractorPortal isOpen={isSubcontractorOpen} onClose={() => setIsSubcontractorOpen(false)} />
     </div>
   );
