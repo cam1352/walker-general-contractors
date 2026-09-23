@@ -47,3 +47,20 @@ body {
 .goog-te-gadget .goog-te-combo {
     margin: 0 !important;
 }
+
+/* Google Translate Global Overrides */
+body { top: 0 !important; }
+.skiptranslate iframe.goog-te-banner-frame { display: none !important; }
+.goog-te-gadget { color: transparent !important; font-size: 0px !important; }
+.goog-te-gadget .goog-te-combo { 
+  margin: 0 !important; 
+  background: #fff; 
+  padding: 8px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  font-family: inherit; 
+  font-weight: bold; 
+  color: #0f172a; 
+  outline: none; 
+  width: 100%;
+}

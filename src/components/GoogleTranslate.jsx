@@ -1,34 +1,30 @@
-﻿import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 export default function GoogleTranslate({ id = "google_translate_element", className = "" }) {
   useEffect(() => {
-    // Only load the script once
-    if (!document.getElementById('google-translate-script')) {
+    // Define a unique callback for this specific instance
+    const initFuncName = `googleTranslateElementInit_${id}`;
+    
+    window[initFuncName] = () => {
+      new window.google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,fr,es,pa,zh-CN,zh-TW,ru,uk,iw,he',
+        layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, id);
+    };
+
+    // Load the script uniquely for this instance if it hasn't been loaded
+    if (!document.getElementById(`google-translate-script-${id}`)) {
       const addScript = document.createElement('script');
-      addScript.id = 'google-translate-script';
-      addScript.setAttribute('src', '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit');
+      addScript.id = `google-translate-script-${id}`;
+      addScript.setAttribute('src', `//translate.google.com/translate_a/element.js?cb=${initFuncName}`);
       document.body.appendChild(addScript);
-      
-      window.googleTranslateElementInit = () => {
-        // Find all elements with the translate class/id and initialize them
-        const elements = document.querySelectorAll('.g-translate-wrapper');
-        elements.forEach(el => {
-          new window.google.translate.TranslateElement({
-            pageLanguage: 'en',
-            includedLanguages: 'en,fr,es,pa,zh-CN,zh-TW',
-            layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
-          }, el.id);
-        });
-      };
-    } else if (window.google && window.google.translate) {
-        // If already loaded but a new component mounts, we could try to initialize it, 
-        // but since we aren't unmounting, the initial load is sufficient.
     }
-  }, []);
+  }, [id]);
 
   return (
     <div className={className}>
-      <div id={id} className="g-translate-wrapper"></div>
+      <div id={id}></div>
     </div>
   );
 }

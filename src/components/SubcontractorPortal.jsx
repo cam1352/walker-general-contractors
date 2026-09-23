@@ -1,32 +1,8 @@
-import React, { useState } from 'react';
-import { X, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import React from 'react';
+import { X, ShieldCheck } from 'lucide-react';
 
 export default function SubcontractorPortal({ isOpen, onClose }) {
-  const [submitted, setSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
   if (!isOpen) return null;
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    const formData = new FormData(e.target);
-
-    fetch('https://formsubmit.co/ajax/info@walkergeneralcontractors.ca', {
-      method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    })
-      .then(() => {
-        setIsSubmitting(false);
-        setSubmitted(true);
-      })
-      .catch(() => {
-        setIsSubmitting(false);
-        setSubmitted(true);
-      });
-  };
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
@@ -50,103 +26,84 @@ export default function SubcontractorPortal({ isOpen, onClose }) {
 
         {/* Scrollable Content */}
         <div className="p-6 overflow-y-auto">
-          {submitted ? (
-            <div className="py-12 text-center flex flex-col items-center">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                <CheckCircle2 className="w-8 h-8 text-green-600" />
-              </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-2">Application Received</h3>
-              <p className="text-slate-600 max-w-md mx-auto">
-                Your compliance documents have been submitted to Walker General Contractors. Our project management team will verify your WCB and liability insurance within 48 hours.
-              </p>
-              <button onClick={onClose} className="mt-8 px-6 py-2 bg-[#8CC63F] text-slate-950 font-bold uppercase tracking-wider rounded-lg">
-                Close Portal
-              </button>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <input type="hidden" name="_subject" value="New Subcontractor Application - Walker General Contractors" />
-              <input type="hidden" name="_captcha" value="false" />
+          <form action="https://formsubmit.co/info@walkergeneralcontractors.ca" method="POST" encType="multipart/form-data" className="space-y-6">
+            <input type="hidden" name="_subject" value="New Subcontractor Application - Walker General Contractors" />
+            <input type="hidden" name="_next" value="https://walkergeneralcontractors.ca/" />
+            <input type="hidden" name="_captcha" value="false" />
 
-              {/* Company Details */}
-              <div className="space-y-4">
-                <h3 className="text-lg font-bold border-b pb-2 flex items-center space-x-2">
-                  <span className="bg-slate-100 text-slate-600 px-2 py-0.5 rounded text-sm">1</span>
-                  <span>Company Details</span>
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-semibold text-slate-700 mb-1">Legal Company Name</label>
-                    <input type="text" name="Company Name" placeholder="e.g. Apex Plumbing Ltd." className="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-[#8CC63F] outline-none" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-slate-700 mb-1">Trade Classification</label>
-                    <select name="Trade Classification" className="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-[#8CC63F] outline-none text-slate-700">
-                      <option value="">Select Primary Trade...</option>
-                      <option value="electrical">Electrical</option>
-                      <option value="plumbing">Plumbing</option>
-                      <option value="hvac">HVAC</option>
-                      <option value="framing">Framing &amp; Structural</option>
-                      <option value="drywall">Drywall &amp; Taping</option>
-                      <option value="painting">Painting</option>
-                      <option value="concrete">Concrete &amp; Foundation</option>
-                    </select>
-                  </div>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-semibold text-slate-700 mb-1">Contact Person</label>
-                    <input type="text" name="Contact Person" placeholder="Full name" className="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-[#8CC63F] outline-none" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-slate-700 mb-1">Email Address</label>
-                    <input type="email" name="Email" placeholder="contact@company.ca" className="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-[#8CC63F] outline-none" />
-                  </div>
+            {/* Company Details */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-bold border-b pb-2 flex items-center space-x-2">
+                <span className="bg-slate-100 text-slate-600 px-2 py-0.5 rounded text-sm">1</span>
+                <span>Company Details</span>
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-1">Legal Company Name</label>
+                  <input type="text" name="Company Name" required placeholder="e.g. Apex Plumbing Ltd." className="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-[#8CC63F] focus:border-[#8CC63F] outline-none" />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-1">Phone Number</label>
-                  <input type="tel" name="Phone" placeholder="(604) 000-0000" className="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-[#8CC63F] outline-none" />
+                  <label className="block text-sm font-semibold text-slate-700 mb-1">Trade Classification</label>
+                  <select name="Trade Classification" required className="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-[#8CC63F] outline-none text-slate-700">
+                    <option value="">Select Primary Trade...</option>
+                    <option value="electrical">Electrical</option>
+                    <option value="plumbing">Plumbing</option>
+                    <option value="hvac">HVAC</option>
+                    <option value="framing">Framing &amp; Structural</option>
+                    <option value="drywall">Drywall &amp; Taping</option>
+                    <option value="painting">Painting</option>
+                    <option value="concrete">Concrete &amp; Foundation</option>
+                  </select>
                 </div>
               </div>
-
-              {/* Mandatory Compliance */}
-              <div className="space-y-4 pt-2">
-                <h3 className="text-lg font-bold border-b pb-2 flex items-center space-x-2 text-red-600">
-                  <span className="bg-red-50 text-red-600 px-2 py-0.5 rounded text-sm border border-red-200">2</span>
-                  <span>Mandatory Compliance</span>
-                </h3>
-                <div className="bg-red-50/50 p-4 rounded-xl border border-red-100 space-y-4">
-                  <div>
-                    <label className="block text-sm font-semibold text-slate-700 mb-1">WorkSafeBC (WCB) Account Number</label>
-                    <input type="text" name="WCB Account Number" placeholder="Required for all site access" className="w-full px-4 py-2 bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-red-400 outline-none" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-slate-700 mb-1">Commercial General Liability ($2M Minimum) — Policy Number</label>
-                    <input type="text" name="Liability Policy Number" placeholder="Policy Number" className="w-full px-4 py-2 bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-red-400 outline-none" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-slate-700 mb-1">Insurance Expiry Date</label>
-                    <input type="date" name="Insurance Expiry" className="w-full px-4 py-2 bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-red-400 outline-none" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-slate-700 mb-1">Upload Clearance Letter &amp; Insurance Docs (PDF)</label>
-                    <input type="file" name="Clearance Documents" accept=".pdf,.doc,.docx,.jpg,.png" className="w-full border-2 border-dashed border-slate-300 rounded-xl p-6 bg-white cursor-pointer hover:bg-slate-50 transition-colors file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#8CC63F] file:text-white hover:file:bg-[#7CB334]" />
-                  </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-1">Contact Person</label>
+                  <input type="text" name="Contact Person" required placeholder="Full name" className="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-[#8CC63F] outline-none" />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-1">Email Address</label>
+                  <input type="email" name="Email" required placeholder="contact@company.ca" className="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-[#8CC63F] outline-none" />
                 </div>
               </div>
-
-              <div className="pt-4 border-t border-slate-100">
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full py-4 bg-slate-950 text-white rounded-xl font-bold tracking-wider hover:bg-[#8CC63F] hover:text-slate-950 transition-all flex justify-center items-center space-x-2 disabled:opacity-60 disabled:cursor-not-allowed"
-                >
-                  <ShieldCheck className="w-5 h-5" />
-                  <span>{isSubmitting ? 'Uploading Documents...' : 'Submit For Verification'}</span>
-                </button>
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1">Phone Number</label>
+                <input type="tel" name="Phone" required placeholder="(604) 000-0000" className="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-[#8CC63F] outline-none" />
               </div>
-            </form>
-          )}
+            </div>
+
+            {/* Mandatory Compliance */}
+            <div className="space-y-4 pt-2">
+              <h3 className="text-lg font-bold border-b pb-2 flex items-center space-x-2 text-red-600">
+                <span className="bg-red-50 text-red-600 px-2 py-0.5 rounded text-sm border border-red-200">2</span>
+                <span>Mandatory Compliance</span>
+              </h3>
+              <div className="bg-red-50/50 p-4 rounded-xl border border-red-100 space-y-4">
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-1">WorkSafeBC (WCB) Account Number</label>
+                  <input type="text" name="WCB Account Number" required placeholder="Required for all site access" className="w-full px-4 py-2 bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-red-400 outline-none" />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-1">Commercial General Liability ($2M Minimum) — Policy Number</label>
+                  <input type="text" name="Liability Policy Number" required placeholder="Policy Number" className="w-full px-4 py-2 bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-red-400 outline-none" />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-1">Upload Clearance Letter &amp; Insurance Docs (PDF)</label>
+                  <input type="file" name="Clearance Documents" accept=".pdf,.doc,.docx,.jpg,.png" className="w-full border-2 border-dashed border-slate-300 rounded-xl p-6 bg-white cursor-pointer hover:bg-slate-50 transition-colors file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#8CC63F] file:text-white hover:file:bg-[#7CB334]" />
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-slate-100">
+              <button
+                type="submit"
+                className="w-full py-4 bg-slate-950 text-white rounded-xl font-bold tracking-wider hover:bg-[#8CC63F] hover:text-slate-950 transition-all flex justify-center items-center space-x-2"
+              >
+                <ShieldCheck className="w-5 h-5" />
+                <span>Submit For Verification</span>
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
