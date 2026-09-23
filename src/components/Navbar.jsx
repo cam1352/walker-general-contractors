@@ -2,6 +2,7 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Menu, X, ChevronRight, Calculator } from 'lucide-react';
 import { companyDetails } from '../data/walkerData';
+import GoogleTranslate from './GoogleTranslate';
 
 export default function Navbar({ onOpenEstimate, onOpenContact, onOpenSubcontractor }) {
   const [scrolled, setScrolled] = useState(false);
@@ -71,6 +72,7 @@ export default function Navbar({ onOpenEstimate, onOpenContact, onOpenSubcontrac
             <a href="#services" className="hover:text-[#8CC63F] transition-colors">Services</a>
             <a href="#portfolio" className="hover:text-[#8CC63F] transition-colors">Portfolio</a>
             <a href="#faq" className="hover:text-[#8CC63F] transition-colors">FAQ</a>
+              <Link to="/overview" className="hover:text-[#8CC63F] transition-colors">Company Overview</Link>
           </div>
 
           {/* Action CTAs */}
@@ -94,11 +96,12 @@ export default function Navbar({ onOpenEstimate, onOpenContact, onOpenSubcontrac
         </div>
 
         {/* Mobile Dropdown */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-4 shadow-xl">
+        
+          <div className={`lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-4 shadow-xl transition-all duration-300 overflow-hidden ${mobileMenuOpen ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0 py-0 pb-0 pt-0 border-transparent"}`}>
             <a href="#services" onClick={() => setMobileMenuOpen(false)} className="block text-slate-700 hover:text-[#8CC63F] font-bold py-2 border-b border-slate-100">Services</a>
             <a href="#portfolio" onClick={() => setMobileMenuOpen(false)} className="block text-slate-700 hover:text-[#8CC63F] font-bold py-2 border-b border-slate-100">Project Portfolio</a>
             <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="block text-slate-700 hover:text-[#8CC63F] font-bold py-2 border-b border-slate-100">Frequently Asked Questions</a>
+              <Link to="/overview" onClick={() => setMobileMenuOpen(false)} className="block text-slate-700 hover:text-[#8CC63F] font-bold py-2 border-b border-slate-100">Company Overview</Link>
             <button onClick={() => { setMobileMenuOpen(false); onOpenSubcontractor(); }} className="block w-full text-left text-slate-700 hover:text-[#8CC63F] font-bold py-2 border-b border-slate-100 flex items-center space-x-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#8CC63F]"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
               <span>Subcontractor Compliance Login</span>
@@ -120,7 +123,6 @@ export default function Navbar({ onOpenEstimate, onOpenContact, onOpenSubcontrac
               </button>
             </div>
           </div>
-        )}
       </nav>
     </header>
   );

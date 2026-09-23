@@ -1,8 +1,8 @@
 ﻿import React, { useEffect } from 'react';
 
-export default function GoogleTranslate() {
+export default function GoogleTranslate({ id = "google_translate_element", className = "" }) {
   useEffect(() => {
-    // Prevent adding the script multiple times
+    // Only load the script once
     if (!document.getElementById('google-translate-script')) {
       const addScript = document.createElement('script');
       addScript.id = 'google-translate-script';
@@ -10,18 +10,25 @@ export default function GoogleTranslate() {
       document.body.appendChild(addScript);
       
       window.googleTranslateElementInit = () => {
-        new window.google.translate.TranslateElement({
-          pageLanguage: 'en',
-          includedLanguages: 'en,fr,es,pa,zh-CN,zh-TW',
-          layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
-        }, 'google_translate_element_global');
+        // Find all elements with the translate class/id and initialize them
+        const elements = document.querySelectorAll('.g-translate-wrapper');
+        elements.forEach(el => {
+          new window.google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,fr,es,pa,zh-CN,zh-TW',
+            layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
+          }, el.id);
+        });
       };
+    } else if (window.google && window.google.translate) {
+        // If already loaded but a new component mounts, we could try to initialize it, 
+        // but since we aren't unmounting, the initial load is sufficient.
     }
   }, []);
 
   return (
-    <div className="fixed bottom-6 left-6 z-[100] bg-white p-2 rounded-xl shadow-2xl border border-slate-200 flex items-center space-x-2">
-      <div id="google_translate_element_global"></div>
+    <div className={className}>
+      <div id={id} className="g-translate-wrapper"></div>
     </div>
   );
 }

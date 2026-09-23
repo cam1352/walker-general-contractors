@@ -17,6 +17,7 @@ import Footer from './components/Footer';
 import GoogleTranslate from './components/GoogleTranslate';
 import LocationPage from './pages/LocationPage';
 import LocationsList from './pages/LocationsList';
+import BrochurePage from './pages/BrochurePage';
 
 function HomePage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -89,8 +90,9 @@ function HomePage() {
         initialEstimateData={estimateData}
       />
       
-      <GoogleTranslate />
-      <SubcontractorPortal isOpen={isSubcontractorOpen} onClose={() => setIsSubcontractorOpen(false)} />
+      
+      <GoogleTranslate id="google_desktop" className="hidden lg:flex fixed bottom-6 left-6 z-[100] bg-white p-2 rounded-xl shadow-2xl border border-slate-200" />
+        <SubcontractorPortal isOpen={isSubcontractorOpen} onClose={() => setIsSubcontractorOpen(false)} />
     </div>
   );
 }
@@ -100,7 +102,11 @@ export default function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/locations" element={<LocationsList />} />
+          <Route path="/overview" element={<BrochurePage />} />
       <Route path="/locations/:main/:sub" element={<LocationPage />} />
     </Routes>
   );
 }
+
+
+
