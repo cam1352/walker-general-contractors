@@ -41,7 +41,7 @@ function HomePage() {
           if (el) el.scrollIntoView({ behavior: 'smooth' });
         }}
         onOpenContact={handleOpenContactNormal}
-        onOpenSubcontractor={() => setIsSubcontractorOpen(true)}
+        
       />
       
       <main>
@@ -51,15 +51,15 @@ function HomePage() {
             if (el) el.scrollIntoView({ behavior: 'smooth' });
           }}
           onOpenContact={handleOpenContactNormal}
-        onOpenSubcontractor={() => setIsSubcontractorOpen(true)}
+        
         />
         <TrustBadges />
         <CostEstimator onOpenContactWithEstimate={handleOpenContactWithEstimate} />
         <BeforeAfterSlider />
         <Services onOpenContact={handleOpenContactNormal}
-        onOpenSubcontractor={() => setIsSubcontractorOpen(true)} />
+         />
         <PortfolioGallery onOpenContact={handleOpenContactNormal}
-        onOpenSubcontractor={() => setIsSubcontractorOpen(true)} />
+         />
         
         {/* Call to action for the massive location directory */}
         <div className="bg-slate-900 py-16 border-y border-slate-800 text-center">
@@ -71,16 +71,15 @@ function HomePage() {
         </div>
 
         <ProcessTimeline onOpenContact={handleOpenContactNormal}
-        onOpenSubcontractor={() => setIsSubcontractorOpen(true)} />
+         />
         <AboutOwner onOpenContact={handleOpenContactNormal}
-        onOpenSubcontractor={() => setIsSubcontractorOpen(true)} />
+         />
         <Testimonials />
         <FAQ />
       </main>
 
       <Footer 
         onOpenContact={handleOpenContactNormal}
-        onOpenSubcontractor={() => setIsSubcontractorOpen(true)}
         onOpenSubcontractor={() => setIsSubcontractorOpen(true)}
       />
 
