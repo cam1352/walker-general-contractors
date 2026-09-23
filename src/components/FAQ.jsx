@@ -1,12 +1,13 @@
 ﻿import React, { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, PlusCircle } from 'lucide-react';
 import faqsData from '../data/faqs.json';
 
 export default function FAQ() {
   const [openId, setOpenId] = useState(null);
+  const [showAll, setShowAll] = useState(false);
 
-  // Take the first 10 FAQs to display on the landing page
-  const displayFaqs = faqsData.slice(0, 10);
+  // If showAll is false, show 10. If true, show all 100.
+  const displayFaqs = showAll ? faqsData : faqsData.slice(0, 10);
 
   return (
     <section id="faq" className="py-24 bg-slate-50 border-t border-slate-200">
@@ -46,6 +47,18 @@ export default function FAQ() {
             </div>
           ))}
         </div>
+
+        {!showAll && (
+          <div className="mt-12 text-center">
+            <button
+              onClick={() => setShowAll(true)}
+              className="inline-flex items-center justify-center space-x-2 px-8 py-4 bg-slate-900 text-white rounded-xl font-bold uppercase tracking-wider hover:bg-[#8CC63F] hover:text-slate-950 transition-all shadow-lg"
+            >
+              <PlusCircle className="w-5 h-5" />
+              <span>Load All 100 FAQs</span>
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
