@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TrustBadges from './components/TrustBadges';
@@ -9,6 +9,7 @@ import PortfolioGallery from './components/PortfolioGallery';
 import ProcessTimeline from './components/ProcessTimeline';
 import AboutOwner from './components/AboutOwner';
 import Testimonials from './components/Testimonials';
+import FAQ from './components/FAQ';
 import ContactModal from './components/ContactModal';
 import Footer from './components/Footer';
 
@@ -27,7 +28,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-amber-500 selection:text-slate-950">
+    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-[#8CC63F] selection:text-white">
       <Navbar
         onOpenEstimate={() => {
           const el = document.getElementById('estimator');
@@ -70,6 +71,9 @@ export default function App() {
         />
 
         <Testimonials />
+        
+        {/* Render the 100 FAQs here */}
+        <FAQ />
       </main>
 
       <Footer
@@ -84,4 +88,3 @@ export default function App() {
     </div>
   );
 }
-

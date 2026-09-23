@@ -1,14 +1,11 @@
-﻿<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+﻿<!doctype html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Walker General Contractors | Premium Custom Builders & Renovations</title>`n    <meta name="description" content="Award-winning general contractor specializing in luxury custom homes, major renovations, and commercial construction. Fully licensed, WorkSafeBC compliant, and BBB A+ accredited.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-      <script type="application/ld+json">
+    <title>Walker General Contractors</title>
+    
+    <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "GeneralContractor",
@@ -30,34 +27,40 @@
         "latitude": 49.2827,
         "longitude": -123.1207
       },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday"
-        ],
-        "opens": "07:00",
-        "closes": "18:00"
-      },
       "knowsLanguage": ["en", "fr", "es", "pa", "zh"]
     }
     </script>
-</head>
-  <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-amber-500 selection:text-slate-950">
-    <!-- A hidden form for Netlify to parse the React form fields -->
-    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-      <input type="text" name="name" />
-      <input type="email" name="email" />
-      <input type="text" name="phone" />
-      <input type="text" name="projectType" />
-      <textarea name="message"></textarea>
-      <input type="text" name="estimatedCost" />
-    </form>
+    
+    <!-- Google Translate Script for actual visible translation -->
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'en,fr,es,pa,zh-CN,zh-TW',
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+    <style>
+      /* Hide the annoying top bar Google Translate adds */
+      .skiptranslate iframe { display: none !important; }
+      body { top: 0 !important; }
+      /* Style the translate widget container */
+      #google_translate_element select {
+        background-color: #f8fafc;
+        border: 1px solid #cbd5e1;
+        border-radius: 6px;
+        padding: 4px 8px;
+        font-size: 14px;
+        color: #334155;
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
-
