@@ -1,4 +1,5 @@
 ﻿import React, { useState } from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TrustBadges from './components/TrustBadges';
@@ -13,11 +14,13 @@ import FAQ from './components/FAQ';
 import ContactModal from './components/ContactModal';
 import SubcontractorPortal from './components/SubcontractorPortal';
 import Footer from './components/Footer';
+import LocationPage from './pages/LocationPage';
+import LocationsList from './pages/LocationsList';
 
-export default function App() {
+function HomePage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
-  const [isSubcontractorOpen, setIsSubcontractorOpen] = useState(false);
   const [estimateData, setEstimateData] = useState(null);
+  const [isSubcontractorOpen, setIsSubcontractorOpen] = useState(false);
 
   const handleOpenContactWithEstimate = (data) => {
     setEstimateData(data);
@@ -37,7 +40,6 @@ export default function App() {
           if (el) el.scrollIntoView({ behavior: 'smooth' });
         }}
         onOpenContact={handleOpenContactNormal}
-        onOpenSubcontractor={() => setIsSubcontractorOpen(true)}
       />
       
       <main>
@@ -48,40 +50,28 @@ export default function App() {
           }}
           onOpenContact={handleOpenContactNormal}
         />
-
         <TrustBadges />
-
-        <CostEstimator
-          onOpenContactWithEstimate={handleOpenContactWithEstimate}
-        />
-
+        <CostEstimator onOpenContactWithEstimate={handleOpenContactWithEstimate} />
         <BeforeAfterSlider />
-
-        <Services
-          onOpenContact={handleOpenContactNormal}
-        />
-
-        <PortfolioGallery
-          onOpenContact={handleOpenContactNormal}
-        />
-
-        <ProcessTimeline
-          onOpenContact={handleOpenContactNormal}
-        />
-
-        <AboutOwner
-          onOpenContact={handleOpenContactNormal}
-        />
-
-        <Testimonials />
+        <Services onOpenContact={handleOpenContactNormal} />
+        <PortfolioGallery onOpenContact={handleOpenContactNormal} />
         
-        {/* Render the 100 FAQs here */}
+        {/* Call to action for the massive location directory */}
+        <div className="bg-slate-900 py-16 border-y border-slate-800 text-center">
+            <h2 className="text-3xl font-bold text-white mb-4">Serving the Entire Lower Mainland</h2>
+            <p className="text-slate-400 max-w-2xl mx-auto mb-8">From Deep Cove to South Surrey, we are BC's premier builder.</p>
+            <Link to="/locations" className="px-8 py-3 bg-[#8CC63F] text-slate-950 font-bold uppercase tracking-wider rounded-lg hover:bg-white transition-colors">
+              View All 150+ Service Areas
+            </Link>
+        </div>
+
+        <ProcessTimeline onOpenContact={handleOpenContactNormal} />
+        <AboutOwner onOpenContact={handleOpenContactNormal} />
+        <Testimonials />
         <FAQ />
       </main>
 
-      <SubcontractorPortal isOpen={isSubcontractorOpen} onClose={() => setIsSubcontractorOpen(false)} />
-
-      <Footer
+      <Footer 
         onOpenContact={handleOpenContactNormal}
         onOpenSubcontractor={() => setIsSubcontractorOpen(true)}
       />
@@ -91,6 +81,18 @@ export default function App() {
         onClose={() => setIsContactOpen(false)}
         initialEstimateData={estimateData}
       />
+      
+      <SubcontractorPortal isOpen={isSubcontractorOpen} onClose={() => setIsSubcontractorOpen(false)} />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/locations" element={<LocationsList />} />
+      <Route path="/locations/:main/:sub" element={<LocationPage />} />
+    </Routes>
   );
 }
