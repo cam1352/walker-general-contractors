@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Phone, Mail, MapPin, Menu, X, ChevronRight, Calculator } from 'lucide-react';
 import { companyDetails } from '../data/walkerData';
 
@@ -45,17 +45,11 @@ export default function Navbar({ onOpenEstimate, onOpenContact }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           
           <a href="#" className="flex items-center space-x-3 group">
-            <div className="w-10 h-10 bg-[#8CC63F] rounded-lg flex items-center justify-center font-bold text-white text-xl tracking-tighter shadow-sm group-hover:scale-105 transition-transform">
-              W
-            </div>
-            <div className="flex flex-col">
-              <span className="font-heading font-extrabold text-lg sm:text-xl tracking-wider text-slate-900 uppercase group-hover:text-[#8CC63F] transition-colors">
-                WALKER
-              </span>
-              <span className="text-[10px] tracking-widest text-[#808285] uppercase font-bold">
-                General Contractors
-              </span>
-            </div>
+            <img 
+              src="https://walkergeneralcontractors.ca/wp-content/uploads/2026/03/Walker-logo.png" 
+              alt="Walker General Contractors Logo" 
+              className="h-12 w-auto object-contain group-hover:opacity-90 transition-opacity"
+            />
           </a>
 
           {/* Desktop Navigation */}

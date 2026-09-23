@@ -12,17 +12,11 @@ export default function Footer({ onOpenContact }) {
           {/* Brand Info */}
           <div className="lg:col-span-4 space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-[#8CC63F] rounded-lg flex items-center justify-center font-bold text-slate-950 text-xl tracking-tighter shadow-lg shadow-[#8CC63F]/20">
-                W
-              </div>
-              <div className="flex flex-col">
-                <span className="font-heading font-extrabold text-lg tracking-wider text-white uppercase">
-                  WALKER
-                </span>
-                <span className="text-[10px] tracking-widest text-[#808285] uppercase font-semibold">
-                  General Contractors
-                </span>
-              </div>
+              <img 
+                src="https://walkergeneralcontractors.ca/wp-content/uploads/2026/03/Walker-logo.png" 
+                alt="Walker General Contractors Logo" 
+                className="h-12 w-auto object-contain bg-white/10 rounded-lg p-1"
+              />
             </div>
 
             <p className="text-slate-400 leading-relaxed text-xs">
