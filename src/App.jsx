@@ -14,6 +14,7 @@ import FAQ from './components/FAQ';
 import ContactModal from './components/ContactModal';
 import SubcontractorPortal from './components/SubcontractorPortal';
 import Footer from './components/Footer';
+import GoogleTranslate from './components/GoogleTranslate';
 import LocationPage from './pages/LocationPage';
 import LocationsList from './pages/LocationsList';
 
@@ -82,6 +83,7 @@ function HomePage() {
         initialEstimateData={estimateData}
       />
       
+      <GoogleTranslate />
       <SubcontractorPortal isOpen={isSubcontractorOpen} onClose={() => setIsSubcontractorOpen(false)} />
     </div>
   );

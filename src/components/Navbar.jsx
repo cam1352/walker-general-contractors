@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { Phone, Mail, MapPin, Menu, X, ChevronRight, Calculator } from 'lucide-react';
 import { companyDetails } from '../data/walkerData';
 
@@ -67,7 +67,7 @@ export default function Navbar({ onOpenEstimate, onOpenContact }) {
             <a href="#faq" className="hover:text-[#8CC63F] transition-colors">FAQ</a>
             
             {/* Real Google Translate Widget Container */}
-            <div id="google_translate_element" className="ml-2"></div>
+            
           </div>
 
           {/* Action CTAs */}
@@ -98,7 +98,7 @@ export default function Navbar({ onOpenEstimate, onOpenContact }) {
             <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="block text-slate-700 hover:text-[#8CC63F] font-bold py-2 border-b border-slate-100">Frequently Asked Questions</a>
             
             <div className="py-2 border-b border-slate-100">
-               <div id="google_translate_element" className="mt-2"></div>
+               
             </div>
 
             <div className="pt-2 space-y-2">
