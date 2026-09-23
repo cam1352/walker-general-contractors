@@ -32,11 +32,11 @@ export default function Navbar({ onOpenEstimate, onOpenContact }) {
             <a href={`tel:${companyDetails.phone}`} className="flex items-center space-x-1.5 hover:text-[#8CC63F] transition-colors">
               <Phone className="w-3.5 h-3.5 text-[#8CC63F]" />
               <span className="font-bold text-slate-800">{companyDetails.phoneFormatted}</span>
-            </Link>
+            </a>
             <a href={`mailto:${companyDetails.email}`} className="flex items-center space-x-1.5 hover:text-[#8CC63F] transition-colors">
               <Mail className="w-3.5 h-3.5 text-[#8CC63F]" />
               <span className="font-medium text-slate-600">{companyDetails.email}</span>
-            </Link>
+            </a>
           </div>
         </div>
       </div>
@@ -59,16 +59,13 @@ export default function Navbar({ onOpenEstimate, onOpenContact }) {
                 Vancouver
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-6 text-sm font-bold text-slate-700">
             <a href="#services" className="hover:text-[#8CC63F] transition-colors">Services</a>
             <a href="#portfolio" className="hover:text-[#8CC63F] transition-colors">Portfolio</a>
             <a href="#faq" className="hover:text-[#8CC63F] transition-colors">FAQ</a>
-            
-            {/* Real Google Translate Widget Container */}
-            
           </div>
 
           {/* Action CTAs */}
@@ -98,15 +95,11 @@ export default function Navbar({ onOpenEstimate, onOpenContact }) {
             <a href="#portfolio" onClick={() => setMobileMenuOpen(false)} className="block text-slate-700 hover:text-[#8CC63F] font-bold py-2 border-b border-slate-100">Project Portfolio</a>
             <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="block text-slate-700 hover:text-[#8CC63F] font-bold py-2 border-b border-slate-100">Frequently Asked Questions</a>
             
-            <div className="py-2 border-b border-slate-100">
-               
-            </div>
-
             <div className="pt-2 space-y-2">
               <a href={`tel:${companyDetails.phone}`} className="w-full py-3 rounded-lg bg-slate-100 border border-slate-200 text-[#8CC63F] font-bold flex items-center justify-center space-x-2 text-sm">
                 <Phone className="w-4 h-4" />
                 <span>Call {companyDetails.phoneFormatted}</span>
-              </Link>
+              </a>
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
