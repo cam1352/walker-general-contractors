@@ -92,7 +92,9 @@ export default function ContactModal({ isOpen, onClose, initialEstimateData }) {
             </div>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="p-6 sm:p-8 space-y-5">
+          <form action="https://formsubmit.co/kyle@walkergeneralcontractors.ca" method="POST" className="p-6 sm:p-8 space-y-5">
+            <input type="hidden" name="_subject" value="New Website Inquiry - Walker General Contractors" />
+            <input type="hidden" name="_captcha" value="false" />
             
             {initialEstimateData && (
               <div className="p-3 bg-[#8CC63F]/10 border border-[#8CC63F]/30 rounded-xl text-xs text-[#8CC63F] flex items-center space-x-2">
