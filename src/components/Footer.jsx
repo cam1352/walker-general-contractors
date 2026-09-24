@@ -107,8 +107,7 @@ export default function Footer({ onOpenContact }) {
         </div>
 
         <div className="border-t border-slate-900 pt-8 flex flex-col sm:flex-row justify-between items-center text-[11px] text-slate-500 gap-4">
-          <div>
-            Â© {new Date().getFullYear()} {companyDetails.name}. All rights reserved. North Vancouver, BC.
+          <div>&copy; {new Date().getFullYear()} <a href="https://walkergeneralcontractors.ca" className="hover:text-[#8CC63F] underline underline-offset-2 transition-colors" target="_blank" rel="noopener noreferrer">{companyDetails.name}</a>. All rights reserved. North Vancouver, BC.
           </div>
           <div className="flex space-x-4">
             <span className="hover:text-slate-400 cursor-pointer">Privacy Policy</span>
