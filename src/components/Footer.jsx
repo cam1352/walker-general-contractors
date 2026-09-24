@@ -41,6 +41,18 @@ export default function Footer({ onOpenContact }) {
             </div>
           </div>
 
+          
+          {/* Partner Network */}
+          <div className="lg:col-span-2 space-y-3">
+            <h4 className="font-bold text-white text-sm uppercase tracking-wider">Our Network</h4>
+            <ul className="space-y-2">
+              <li><a href="https://walkergeneralcontractors.ca" target="_blank" rel="noopener noreferrer" className="hover:text-[#8CC63F] transition-colors">Walker General Contractors</a></li>
+              <li><a href="https://vancouvercustomhome.ca" target="_blank" rel="noopener noreferrer" className="hover:text-[#8CC63F] transition-colors">Vancouver Custom Homes</a></li>
+              <li><a href="https://mailorderpharmacy.io" target="_blank" rel="noopener noreferrer" className="hover:text-[#8CC63F] transition-colors">Mail Order Pharmacy</a></li>
+              <li><a href="https://calorietracker.xyz" target="_blank" rel="noopener noreferrer" className="hover:text-[#8CC63F] transition-colors">NutriSnap AI Tracker</a></li>
+            </ul>
+          </div>
+
           {/* Quick Links */}
           <div className="lg:col-span-2 space-y-3">
             <h4 className="font-bold text-white text-sm uppercase tracking-wider">Navigation</h4>
