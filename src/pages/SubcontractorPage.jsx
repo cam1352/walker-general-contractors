@@ -24,7 +24,7 @@ export default function SubcontractorPage() {
 
         {/* Scrollable Content */}
         <div className="p-8">
-          <form action="https://formsubmit.co/kyle@walkergeneralcontractors.ca" method="POST" encType="multipart/form-data" className="space-y-6">
+          <form action="https://formsubmit.co/info@walkergeneralcontractors.ca" method="POST" encType="multipart/form-data" className="space-y-6">
             <input type="hidden" name="_subject" value="New Subcontractor Application - Walker General Contractors" />
             
             <input type="hidden" name="_captcha" value="false" />
