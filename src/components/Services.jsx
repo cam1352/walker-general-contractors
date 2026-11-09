@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Home, Hammer, Building2, ChefHat, Bath, Layers, CheckCircle2, ChevronRight } from 'lucide-react';
 import { services } from '../data/walkerData';
 
@@ -68,9 +69,11 @@ export default function Services({ onOpenContact }) {
 
                 <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-xl font-heading font-bold text-white group-hover:text-[#8CC63F] transition-colors">
-                      {service.title}
-                    </h3>
+                    <Link to={`/services/${service.id}`} className="block">
+                      <h3 className="text-xl font-heading font-bold text-white hover:text-[#8CC63F] transition-colors">
+                        {service.title}
+                      </h3>
+                    </Link>
                     <p className="text-slate-400 text-xs leading-relaxed mt-2">
                       {service.summary}
                     </p>
@@ -86,13 +89,13 @@ export default function Services({ onOpenContact }) {
                   </div>
 
                   <div className="pt-4 border-t border-slate-900">
-                    <button
-                      onClick={onOpenContact}
+                    <Link
+                      to={`/services/${service.id}`}
                       className="w-full py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 font-semibold text-xs hover:bg-[#8CC63F] hover:text-slate-950 hover:border-[#8CC63F] transition-all flex items-center justify-center space-x-1"
                     >
-                      <span>Inquire About {service.title}</span>
+                      <span>Explore {service.title}</span>
                       <ChevronRight className="w-4 h-4" />
-                    </button>
+                    </Link>
                   </div>
                 </div>
 

@@ -1,7 +1,7 @@
-﻿import React from 'react';
+import React from 'react';
 import { Phone, Mail, MapPin, ChevronRight, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { companyDetails } from '../data/walkerData';
+import { companyDetails, services } from '../data/walkerData';
 
 export default function Footer({ onOpenContact }) {
   return (
@@ -42,27 +42,17 @@ export default function Footer({ onOpenContact }) {
           </div>
 
           
-          {/* Partner Network */}
-          <div className="lg:col-span-2 space-y-3">
-            <h4 className="font-bold text-white text-sm uppercase tracking-wider">Our Network</h4>
-            <ul className="space-y-2">
-              <li><a href="https://walkergeneralcontractors.ca" target="_blank" rel="noopener noreferrer" className="hover:text-[#8CC63F] transition-colors">Walker General Contractors</a></li>
-              <li><a href="https://vancouvercustomhome.ca" target="_blank" rel="noopener noreferrer" className="hover:text-[#8CC63F] transition-colors">Vancouver Custom Homes</a></li>
-              <li><a href="https://mailorderpharmacy.io" target="_blank" rel="noopener noreferrer" className="hover:text-[#8CC63F] transition-colors">Mail Order Pharmacy</a></li>
-              <li><a href="https://calorietracker.xyz" target="_blank" rel="noopener noreferrer" className="hover:text-[#8CC63F] transition-colors">NutriSnap AI Tracker</a></li>
-            </ul>
-          </div>
-
           {/* Quick Links */}
-          <div className="lg:col-span-2 space-y-3">
+          <div className="lg:col-span-3 space-y-3">
             <h4 className="font-bold text-white text-sm uppercase tracking-wider">Navigation</h4>
             <ul className="space-y-2">
-              <li><a href="#services" className="hover:text-[#8CC63F] transition-colors">Services Catalog</a></li>
-              <li><a href="#estimator" className="hover:text-[#8CC63F] transition-colors">Cost Calculator</a></li>
-              <li><a href="#before-after" className="hover:text-[#8CC63F] transition-colors">Before & After</a></li>
-              <li><a href="#portfolio" className="hover:text-[#8CC63F] transition-colors">Project Gallery</a></li>
-              <li><a href="#process" className="hover:text-[#8CC63F] transition-colors">5-Stage Process</a></li>
-              <li><a href="#about" className="hover:text-[#8CC63F] transition-colors">About Kyle Walker</a></li>
+              <li><a href="/#services" className="hover:text-[#8CC63F] transition-colors">Services Catalog</a></li>
+              <li><a href="/#estimator" className="hover:text-[#8CC63F] transition-colors">Cost Calculator</a></li>
+              <li><a href="/#before-after" className="hover:text-[#8CC63F] transition-colors">Before & After</a></li>
+              <li><a href="/#portfolio" className="hover:text-[#8CC63F] transition-colors">Project Gallery</a></li>
+              <li><a href="/#process" className="hover:text-[#8CC63F] transition-colors">5-Stage Process</a></li>
+              <li><a href="/#about" className="hover:text-[#8CC63F] transition-colors">About Kyle Walker</a></li>
+              <li><Link to="/overview" className="hover:text-[#8CC63F] transition-colors">Company Overview</Link></li>
               <li><Link to="/subcontractors" className="hover:text-[#8CC63F] transition-colors text-left">Trade & Subcontractor Portal</Link></li>
             </ul>
           </div>
@@ -71,14 +61,13 @@ export default function Footer({ onOpenContact }) {
           <div className="lg:col-span-3 space-y-3">
             <h4 className="font-bold text-white text-sm uppercase tracking-wider">Services</h4>
             <ul className="space-y-2">
-              <li>Custom Home Building</li>
-              <li>Full Home Renovations</li>
-              <li>Laneway Houses & ADUs</li>
-              <li>Custom Additions & Structural</li>
-              <li>Luxury Kitchen Remodels</li>
-              <li>Spa Bathroom Renovations</li>
-              <li>Legal Basement Suites</li>
-              <li>Commercial Interior Fit-Outs</li>
+              {services.map((s) => (
+                <li key={s.id}>
+                  <Link to={`/services/${s.id}`} className="hover:text-[#8CC63F] transition-colors">
+                    {s.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

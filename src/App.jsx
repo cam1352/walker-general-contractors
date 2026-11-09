@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -18,6 +18,7 @@ import GoogleTranslate from './components/GoogleTranslate';
 import LocationPage from './pages/LocationPage';
 import LocationsList from './pages/LocationsList';
 import BrochurePage from './pages/BrochurePage';
+import ServiceDetailPage from './pages/ServiceDetailPage';
 
 function HomePage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -136,6 +137,7 @@ export default function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/locations" element={<LocationsList />} />
           <Route path="/overview" element={<BrochurePage />} />
+      <Route path="/services/:serviceId" element={<ServiceDetailPage />} />
       <Route path="/subcontractors" element={<SubcontractorPage />} />
       <Route path="/locations/:main/:sub" element={<LocationPage />} />
     </Routes>
